@@ -1,0 +1,16 @@
+---
+- name: Create gmrender-resurrect target directory
+  file:
+    path: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin
+    state: directory
+
+- name: Download precompiled binary for gmrender-resurrect
+  get_url:
+    url: "{{ gmrender_resurrect_binary_url }}"
+    dest: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin/gmediarender
+    checksum: "{{ gmrender_resurrect_checksum }}"
+    mode: 0755
+  when: gmrender_resurrect_binary_url is defined
+
+- include_tasks: build.yml
+  when: gmrender_resurrect_binary_url is not defined
