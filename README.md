@@ -27,7 +27,7 @@ To do so, just change the [source specification](#source-specification) and the
 
 ## Role Variables Configuring Flags and Options
 
-The following role variables
+The following role variables configure
 [gmrender-resurrect flags or options, documented here](https://github.com/hzeller/gmrender-resurrect/blob/master/INSTALL.md#commandline-options).
 
 | Name                           | Default       | Description                          |
