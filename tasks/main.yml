@@ -23,4 +23,6 @@
   template:
     src: gmrender-resurrect.service.j2
     dest: /etc/systemd/system/gmrender-resurrect.service
-  notify: Restart gmrender-resurrect service
+  notify:
+    - Reload systemd configuration
+    - Restart gmrender-resurrect service
