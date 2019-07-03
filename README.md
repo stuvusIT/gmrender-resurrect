@@ -38,7 +38,7 @@ The following role variables configure
 ### Source Specification
 
 There are multiple ways to specify the source from which gmrender-resurrect should be downloaded.
-Chosing among them is done by providing exactly one of the following role variables.
+Chosing among them is done by providing *exactly one* of the following role variables.
 Actually, multiple of those role variables can be provided, but then only the one listed here first
 is considered.
 
