@@ -3,6 +3,7 @@
   file:
     path: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin
     state: directory
+  when: gmrender_resurrect_binary_url is defined
 
 - name: Download precompiled binary for gmrender-resurrect
   get_url:
