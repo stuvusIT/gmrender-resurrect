@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: haslersn
+  description: Headless UPnP media renderer; see https://github.com/hzeller/gmrender-resurrect
+  company: stuvus (https://stuvus.uni-stuttgart.de)
+
+  license: MIT
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+
+  galaxy_tags:
+    - gmrender-resurrect
+    - gmediarenderer
+    - UPnP
+    - audio
+
+dependencies: []

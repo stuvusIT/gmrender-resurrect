@@ -1,0 +1,15 @@
+---
+- name: Check if the desired gmrender-resurrect version exists
+  stat:
+    path: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin/gmediarender
+  register: gmrender_resurrect_executable_stat
+
+- include_tasks: deploy.yml
+  when: not gmrender_resurrect_executable_stat.stat.exists
+
+- name: Install gmrender-resurrect
+  file:
+    path: /usr/local/bin/gmediarender
+    state: link
+    src: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin/gmediarender
+  notify: Restart gmrender-resurrect service

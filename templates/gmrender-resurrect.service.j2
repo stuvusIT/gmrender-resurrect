@@ -1,0 +1,13 @@
+# {{ ansible_managed }}
+[Unit]
+Description=gmrender-resurrect
+After=network.target sound.target
+
+[Service]
+ExecStart=/usr/local/bin/gmediarender -f "{{ gmrender_resurrect_device_name }}" --gstout-audiosink=autoaudiosink --gstout-audiodevice=pulse --gstout-initial-volume-db=-10
+User={{ gmrender_resurrect_user }}
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

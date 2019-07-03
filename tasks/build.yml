@@ -1,0 +1,48 @@
+---
+# This is included in deploy.yml only if {{ gmrender_resurrect_binary_url }} is not defined
+
+- name: Install build dependenices
+  apt:
+    name:
+      - autoconf
+      - automake
+      - libtool
+      - pkg-config
+      - libupnp-dev
+      - libgstreamer1.0-dev
+
+- name: Download gmrender-resurrect archive
+  get_url:
+    url: "{{ gmrender_resurrect_archive_url | default('https://github.com/' + gmrender_resurrect_github_repo + '/archive/' + gmrender_resurrect_version + '.tar.gz') }}"
+    dest: "{{ global_cache_dir }}/gmrender-resurrect-{{ gmrender_resurrect_version }}.tar.gz"
+    checksum: "{{ gmrender_resurrect_checksum }}"
+  become: false
+  delegate_to: localhost
+
+- name: Clear unarchive target directory
+  file:
+    path: /tmp/gmrender-resurrect-{{ gmrender_resurrect_version }}
+    state: absent
+
+- name: Unpack gmrender-resurrect archive
+  unarchive:
+    src: "{{ global_cache_dir }}/gmrender-resurrect-{{ gmrender_resurrect_version }}.tar.gz"
+    dest: /tmp
+
+- name: Compile gmrender-resurrect
+  shell: ./autogen.sh && ./configure && make
+  args:
+    chdir: /tmp/gmrender-resurrect-{{ gmrender_resurrect_version }}
+
+- name: Create deployment target directory
+  file:
+    path: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin
+    state: directory
+
+- name: Deploy gmrender-resurrect executable
+  copy:
+    remote_src: true
+    src: /tmp/gmrender-resurrect-{{ gmrender_resurrect_version }}/src/gmediarender
+    dest: /opt/gmrender-resurrect-{{ gmrender_resurrect_version }}/bin/gmediarender
+    mode: 0755
+  notify: Restart gmrender-resurrect service
