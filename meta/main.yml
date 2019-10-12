@@ -4,7 +4,7 @@ galaxy_info:
   description: Headless UPnP media renderer; see https://github.com/hzeller/gmrender-resurrect
   company: stuvus (https://stuvus.uni-stuttgart.de)
 
-  license: MIT
+  license: AGPLv3
 
   min_ansible_version: 2.4
 
