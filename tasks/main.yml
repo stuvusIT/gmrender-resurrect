@@ -26,3 +26,11 @@
   notify:
     - Reload systemd configuration
     - Restart gmrender-resurrect service
+
+- meta: flush_handlers
+
+- name: Enable gmrender-resurrect service
+  service:
+    name: gmrender-resurrect
+    enabled: True
+    state: started
