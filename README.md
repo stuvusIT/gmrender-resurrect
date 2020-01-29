@@ -54,7 +54,7 @@ is considered.
   `gmrender-resurrect-{{ gmrender_resurrect_version }}` which contains in turn the source that can
   be compiled with `cargo build`.
   The compilation yields a binary named `gmrender-resurrect` which is then installed.
-* `gmrender_resurrect_github_repo`: 
+* `gmrender_resurrect_github_repo`:
   Short form for
   `gmrender_resurrect_archive_url: https://github.com/{{ gmrender_resurrect_github_repo }}/archive/{{ gmrender_resurrect_version }}.tar.gz`.
 
