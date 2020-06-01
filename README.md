@@ -22,8 +22,8 @@ To do so, just change the [source specification](#source-specification) and the
 | gmrender_resurrect_binary_url  | _undefined_                                                             | See [source specification](#source-specification)          |
 | gmrender_resurrect_archive_url | _undefined_                                                             | See [source specification](#source-specification)          |
 | gmrender_resurrect_github_repo | hzeller/gmrender-resurrect                                              | See [source specification](#source-specification)          |
-| gmrender_resurrect_checksum    | sha256:79dba7cbd275098026a16829597b7013ab71a9cca4c9762af6f210637099c39a | Checksum of the downloaded archive or binary               |
-| gmrender_resurrect_version     | a7b0b1b9ca482d2d34ac62c2f2dc0cf0dfbb702b                                | See [source specification](#source-specification)          |
+| gmrender_resurrect_checksum    | sha256:7d13c3d2ac79959c4a86a085e943aeabc776b9716eef93b64b2504339dc5be42 | Checksum of the downloaded archive or binary               |
+| gmrender_resurrect_version     | 26d8f7edf5336bc30f7334c6ad459bf7f4f90ff2                                | See [source specification](#source-specification)          |
 | gmrender_resurrect_user        | gmrender-resurrect                                                      | The user that runs gmrender-resurrect.                     |
 
 ## Role Variables Configuring Flags and Options
