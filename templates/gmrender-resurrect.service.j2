@@ -1,7 +1,8 @@
 # {{ ansible_managed }}
 [Unit]
 Description=gmrender-resurrect
-After=network.target sound.target
+After=network-online.target sound.target
+Requires=network-online.target sound.target
 
 [Service]
 ExecStart=/usr/local/bin/gmediarender -f "{{ gmrender_resurrect_device_name }}" --gstout-audiosink=autoaudiosink --gstout-audiodevice=pulse --gstout-initial-volume-db=-10
